@@ -12,11 +12,12 @@ protocol FiltersDelegate {
     func delegateHandlingOfFiltersFromFilterController(filters: Filters)
 }
 
-class FiltersViewController: UITableViewController {
+class FiltersViewController: UITableViewController, SortDelegate {
 
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var dealSwitch: UISwitch!
+    @IBOutlet weak var sortValue: UILabel!
     
     var filters: Filters?
     
@@ -93,14 +94,24 @@ class FiltersViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let sortController = segue.destinationViewController as? SortViewController {
+            sortController.delegate = self
+        }
     }
-    */
+    
+    func delegateHandlingOfSortingFromSortController(sortBy: YelpSortMode) {
+        filters?.sortBy = sortBy
+        sortValue.text = sortBy.description
+        self.tableView.reloadData()
+    }
+    
+    @IBAction func unwindToFilters(segue: UIStoryboardSegue) {
+        // This could save me from having to write a delegate, but it's also annoying to cast.
+        // if let sortVC = segue.sourceViewController as? SortViewController {
+        //   print("\(sortVC.checkedIndex!.row)")
+        // }
+    }
 
 }

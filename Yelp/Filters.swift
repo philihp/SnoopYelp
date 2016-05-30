@@ -9,6 +9,7 @@
 import UIKit
 
 struct Filters {
-    var category: [String]?
+    var categories: [String]?
+    var sortBy: YelpSortMode?
     var deals: Bool = false
 }

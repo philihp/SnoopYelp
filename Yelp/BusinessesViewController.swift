@@ -15,7 +15,9 @@ class BusinessesViewController: UIViewController, UISearchBarDelegate, FiltersDe
     
     var searchController: UISearchController!
     var searchBar: UISearchBar?
-    var searchText: String = ""
+    var searchText: String = "Restaurants"
+    
+    var filters: Filters?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,16 +35,6 @@ class BusinessesViewController: UIViewController, UISearchBarDelegate, FiltersDe
         
         refreshSearch()
 
-/* Example of Yelp search with more search options specified
-        Business.searchWithTerm("Restaurants", sort: .Distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
-            self.businesses = businesses
-            
-            for business in businesses {
-                print(business.name!)
-                print(business.address!)
-            }
-        }
-*/
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,11 +49,21 @@ class BusinessesViewController: UIViewController, UISearchBarDelegate, FiltersDe
     }
     
     func delegateHandlingOfFiltersFromFilterController(filters: Filters) {
-        print("Delegated Filters")
+        self.filters = filters
+        refreshSearch()
     }
     
     func refreshSearch() {
-        Business.searchWithTerm(searchText, completion: { (businesses: [Business]!, error: NSError!) -> Void in
+        print("Searching...")
+        print("Text: \(searchText)")
+        print("Sort: \(filters?.sortBy)")
+        print("Deal: \(filters?.deals)")
+        
+        Business.searchWithTerm(searchText,
+                                sort: filters?.sortBy,
+                                categories: filters?.categories,
+                                deals: filters?.deals,
+                                completion: { (businesses: [Business]!, error: NSError!) -> Void in
             self.businesses = BusinessList(businesses)
             self.tableView.dataSource = self.businesses
             self.tableView.delegate = self.businesses

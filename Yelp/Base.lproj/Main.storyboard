@@ -171,43 +171,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="" id="umq-4S-1EX">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DistanceCell" textLabel="kyV-Ul-ebt" detailTextLabel="3mg-96-XLd" style="IBUITableViewCellStyleValue1" id="cMF-5w-omq" customClass="DistanceCell" customModule="Yelp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="193.5" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cMF-5w-omq" id="QgF-Gf-LAs">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kyV-Ul-ebt">
-                                                    <rect key="frame" x="15" y="12" width="63.5" height="19.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="1 mi" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3mg-96-XLd">
-                                                    <rect key="frame" x="256" y="12" width="29" height="19.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="3GX-Jy-UEh" kind="push" id="lFv-fh-Qs7"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="" id="Idt-0I-zzt">
-                                <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SortCell" textLabel="3Jw-1a-0Wi" detailTextLabel="ies-bX-00y" style="IBUITableViewCellStyleValue1" id="UaW-hQ-dXA" customClass="SortCell" customModule="Yelp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="273.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="157.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UaW-hQ-dXA" id="gXX-pH-Ly3">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
@@ -238,7 +203,7 @@
                             <tableViewSection headerTitle="Categories" id="qWT-iY-UPo">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoriesListCell" id="GFp-fy-ONT">
-                                        <rect key="frame" x="0.0" y="367.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="251.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GFp-fy-ONT" id="y9E-Kf-ltj">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -271,57 +236,41 @@
                         <outlet property="cancelButton" destination="VkO-2J-GbJ" id="zYf-nP-H4M"/>
                         <outlet property="dealSwitch" destination="zEZ-Ya-I2f" id="BRh-DU-MMg"/>
                         <outlet property="saveButton" destination="FuY-5T-1Ix" id="dfJ-Sa-bil"/>
+                        <outlet property="sortValue" destination="ies-bX-00y" id="V27-SF-WuN"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OwH-ID-ET2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2852" y="472"/>
         </scene>
-        <!--Distance-->
-        <scene sceneID="9sH-hA-7wY">
-            <objects>
-                <tableViewController title="Distance" id="3GX-Jy-UEh" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="N8e-T9-X99">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="zV7-cA-Lvk">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zV7-cA-Lvk" id="6Ar-gL-8nT">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="3GX-Jy-UEh" id="cze-4H-cfG"/>
-                            <outlet property="delegate" destination="3GX-Jy-UEh" id="aym-xp-Dv6"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Distance" id="Y57-yI-Vef"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2T0-kp-9CG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3561" y="127"/>
-        </scene>
         <!--Sort-->
         <scene sceneID="nXR-re-Rwr">
             <objects>
-                <tableViewController title="Sort" id="gMN-N4-veE" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="QEm-OY-Cv2">
+                <tableViewController title="Sort" id="gMN-N4-veE" customClass="SortViewController" customModule="Yelp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="QEm-OY-Cv2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="TJb-Un-08K">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationLevel="1" indentationWidth="10" reuseIdentifier="SortCell" textLabel="evc-o4-Ozw" style="IBUITableViewCellStyleDefault" id="TJb-Un-08K" customClass="SortCell" customModule="Yelp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="113.5" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TJb-Un-08K" id="xhY-ba-fAm">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="evc-o4-Ozw">
+                                            <rect key="frame" x="25" y="0.0" width="280" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="titleLabel" destination="evc-o4-Ozw" id="5We-FE-elo"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -330,10 +279,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Sort" id="Zi1-kY-wmD"/>
+                    <connections>
+                        <outlet property="tableView" destination="QEm-OY-Cv2" id="J6L-SD-cRN"/>
+                        <segue destination="tbt-Gy-hBy" kind="unwind" identifier="unwindToFilters" unwindAction="unwindToFilters:" id="kGx-R9-t7q"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1fV-Kn-CUx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="tbt-Gy-hBy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3561" y="826"/>
+            <point key="canvasLocation" x="3455" y="472"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="H5N-fd-hiF">
