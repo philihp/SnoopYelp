@@ -8,6 +8,7 @@
 
 import UIKit
 
-class Filter: NSObject {
-    var category: String?
+struct Filters {
+    var category: [String]?
+    var deals: Bool = false
 }

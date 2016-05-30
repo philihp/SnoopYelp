@@ -56,7 +56,7 @@ class BusinessesViewController: UIViewController, UISearchBarDelegate, FiltersDe
         refreshSearch()
     }
     
-    func delegateHandlingOfFiltersFromFilterController(filters: [Filter]) {
+    func delegateHandlingOfFiltersFromFilterController(filters: Filters) {
         print("Delegated Filters")
     }
     
@@ -73,7 +73,7 @@ class BusinessesViewController: UIViewController, UISearchBarDelegate, FiltersDe
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         let navigationController = segue.destinationViewController as? UINavigationController
-        let filtersController = navigationController?.topViewController as? FilterViewController
+        let filtersController = navigationController?.topViewController as? FiltersViewController
         
         if let filtersController = filtersController {
             filtersController.delegate = self
