@@ -58,11 +58,13 @@ class BusinessesViewController: UIViewController, UISearchBarDelegate, FiltersDe
         print("Text: \(searchText)")
         print("Sort: \(filters?.sortBy)")
         print("Deal: \(filters?.deals)")
+        print("Dist: \(filters?.distance)")
         
         Business.searchWithTerm(searchText,
                                 sort: filters?.sortBy,
                                 categories: filters?.categories,
                                 deals: filters?.deals,
+                                distance: filters?.distance,
                                 completion: { (businesses: [Business]!, error: NSError!) -> Void in
             self.businesses = BusinessList(businesses)
             self.tableView.dataSource = self.businesses
