@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BusinessesViewController: UIViewController, UISearchBarDelegate {
+class BusinessesViewController: UIViewController, UISearchBarDelegate, FiltersDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     var businesses: BusinessList!
@@ -56,6 +56,10 @@ class BusinessesViewController: UIViewController, UISearchBarDelegate {
         refreshSearch()
     }
     
+    func delegateHandlingOfFiltersFromFilterController(filters: [Filter]) {
+        print("Delegated Filters")
+    }
+    
     func refreshSearch() {
         Business.searchWithTerm(searchText, completion: { (businesses: [Business]!, error: NSError!) -> Void in
             self.businesses = BusinessList(businesses)
@@ -68,6 +72,12 @@ class BusinessesViewController: UIViewController, UISearchBarDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let navigationController = segue.destinationViewController as? UINavigationController
+        let filtersController = navigationController?.topViewController as? FilterViewController
+        
+        if let filtersController = filtersController {
+            filtersController.delegate = self
+        }
     }
 
 }
