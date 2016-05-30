@@ -11,5 +11,6 @@ import UIKit
 struct Filters {
     var categories: [String]?
     var sortBy: YelpSortMode?
+    var distance: YelpDistanceMode?
     var deals: Bool = false
 }

@@ -12,12 +12,13 @@ protocol FiltersDelegate {
     func delegateHandlingOfFiltersFromFilterController(filters: Filters)
 }
 
-class FiltersViewController: UITableViewController, SortDelegate {
+class FiltersViewController: UITableViewController, SortDelegate, DistanceDelegate {
 
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var dealSwitch: UISwitch!
     @IBOutlet weak var sortValue: UILabel!
+    @IBOutlet weak var distanceValue: UILabel!
     
     var filters: Filters?
     
@@ -43,6 +44,7 @@ class FiltersViewController: UITableViewController, SortDelegate {
 
         // TODO: Load this from settings
         filters = Filters()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -99,11 +101,20 @@ class FiltersViewController: UITableViewController, SortDelegate {
         if let sortController = segue.destinationViewController as? SortViewController {
             sortController.delegate = self
         }
+        if let distanceController = segue.destinationViewController as? DistanceViewController {
+            distanceController.delegate = self
+        }
     }
     
     func delegateHandlingOfSortingFromSortController(sortBy: YelpSortMode) {
         filters?.sortBy = sortBy
         sortValue.text = sortBy.description
+        self.tableView.reloadData()
+    }
+    
+    func delegateHandlingOfDistanceFromDistanceController(distance: YelpDistanceMode) {
+        filters?.distance = distance
+        distanceValue.text = distance.description
         self.tableView.reloadData()
     }
     

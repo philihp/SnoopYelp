@@ -1,5 +1,5 @@
 //
-//  SortViewController.swift
+//  DistanceViewController.swift
 //  Yelp
 //
 //  Created by Philihp Busby on 2016-05-30.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol SortDelegate {
-    func delegateHandlingOfSortingFromSortController(sortBy: YelpSortMode)
+protocol DistanceDelegate {
+    func delegateHandlingOfDistanceFromDistanceController(distance: YelpDistanceMode)
 }
 
-class SortViewController: UITableViewController {
+class DistanceViewController: UITableViewController {
     
-    var delegate: SortDelegate?
-
+    var delegate: DistanceDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -25,14 +25,14 @@ class SortViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // number of different possible values for YelpSortMode
         return 3
     }
-
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("SortCell", forIndexPath: indexPath) as! SortCell
-        let enumeratedValue = YelpSortMode(rawValue: indexPath.row)!
+        let cell = tableView.dequeueReusableCellWithIdentifier("DistanceCell", forIndexPath: indexPath) as! DistanceCell
+        let enumeratedValue = YelpDistanceMode(rawValue: indexPath.row)!
         cell.titleLabel.text = enumeratedValue.description
+        cell.detailLabel.text = enumeratedValue.details
         return cell
     }
     
@@ -40,8 +40,8 @@ class SortViewController: UITableViewController {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
         
-        if let sorting = YelpSortMode(rawValue: indexPath.row) {
-            delegate?.delegateHandlingOfSortingFromSortController(sorting)
+        if let distance = YelpDistanceMode(rawValue: indexPath.row) {
+            delegate?.delegateHandlingOfDistanceFromDistanceController(distance)
         }
         
         self.performSegueWithIdentifier("unwindToFilters", sender: self)
