@@ -8,21 +8,30 @@
 
 import UIKit
 
-class BusinessesViewController: UIViewController {
+class BusinessesViewController: UIViewController, UISearchBarDelegate {
 
-    var businesses: [Business]!
+    @IBOutlet weak var tableView: UITableView!
+    var businesses: BusinessList!
+    
+    var searchController: UISearchController!
+    var searchBar: UISearchBar?
+    var searchText: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        Business.searchWithTerm("Thai", completion: { (businesses: [Business]!, error: NSError!) -> Void in
-            self.businesses = businesses
         
-            for business in businesses {
-                print(business.name!)
-                print(business.address!)
-            }
-        })
+        // Setup Searchbar
+        searchBar = UISearchBar()
+        searchBar!.placeholder = "Restaurants"
+        searchBar!.sizeToFit()
+        searchBar!.delegate = self
+        navigationItem.titleView = searchBar
+        
+        // Setup TableView
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 128
+        
+        refreshSearch()
 
 /* Example of Yelp search with more search options specified
         Business.searchWithTerm("Restaurants", sort: .Distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
@@ -40,15 +49,25 @@ class BusinessesViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        // print("searchBar: \(searchText)")
+        self.searchText = (searchText == "") ? "Restaurants" : searchText
+        refreshSearch()
+    }
+    
+    func refreshSearch() {
+        Business.searchWithTerm(searchText, completion: { (businesses: [Business]!, error: NSError!) -> Void in
+            self.businesses = BusinessList(businesses)
+            self.tableView.dataSource = self.businesses
+            self.tableView.delegate = self.businesses
+            self.tableView.reloadData()
+        })
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }
