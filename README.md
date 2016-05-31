@@ -53,7 +53,9 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+I went through a lot of trouble to get my Filter page to have a TableViewController that had "Static Cells" in its content. This let my Interface Builder's visualization really accurately reflect what the resulting page would look like. Unfortunately this made it really difficult to have variable number of cells in a section. I ended up shelving the categories for last and made it work with Sorting an Distance by having additional scenes in the storyboard. I thought this worked much better as a UI, and is more close to the "Apple" way.
+
+Unfortunately by the time I had to get the Categories to work, it just wasn't working out. Because of this I had to skip one of the user stories. It was pretty interesting, however in doing this I had to create CategoryTableView to handle this and be the DataSource, since FiltersViewController couldn't be.
 
 ## License
 
