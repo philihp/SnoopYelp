@@ -10,9 +10,13 @@ import UIKit
 
 class CategoryCell: UITableViewCell {
 
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var valueSwitch: UISwitch!
+    var code: String?
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -21,4 +25,9 @@ class CategoryCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func valueChanged(sender: AnyObject) {
+        let value = valueSwitch.on
+        defaults.setBool(value, forKey: "snoop.yelp.categories.\(code)")
+        defaults.synchronize()
+    }
 }

@@ -8,9 +8,9 @@
 
 import UIKit
 
-class Categories: NSObject /*, UITableViewDataSource, UITableViewDelegate */ {
+class Categories: NSObject {
 
-    var data: [[String:String]] = [
+    static var data: [[String:String]] = [
         ["name": "Afghan", "code": "afghani"],
         ["name": "African", "code": "african"],
         ["name": "American, New", "code": "newamerican"],
@@ -181,17 +181,4 @@ class Categories: NSObject /*, UITableViewDataSource, UITableViewDelegate */ {
         ["name": "Wraps", "code": "wraps"],
         ["name": "Yugoslav", "code": "yugoslav"]
     ]
-
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
-    }
-//
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCellWithIdentifier("SettingCell") as!
-//        cell.nameLabel.text = data[indexPath.row]["name"]
-//        return cell
-//    }
-    
-    
 }

@@ -17,7 +17,7 @@ class BusinessesViewController: UIViewController, UISearchBarDelegate, FiltersDe
     var searchBar: UISearchBar?
     var searchText: String = "Restaurants"
     
-    var filters: Filters?
+    var filters: Filters = Filters()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,21 +50,18 @@ class BusinessesViewController: UIViewController, UISearchBarDelegate, FiltersDe
     
     func delegateHandlingOfFiltersFromFilterController(filters: Filters) {
         self.filters = filters
+        filters.saveToDisk()
         refreshSearch()
     }
     
     func refreshSearch() {
-        print("Searching...")
-        print("Text: \(searchText)")
-        print("Sort: \(filters?.sortBy)")
-        print("Deal: \(filters?.deals)")
-        print("Dist: \(filters?.distance)")
+        print("Cats: \(filters.categories)")
         
         Business.searchWithTerm(searchText,
-                                sort: filters?.sortBy,
-                                categories: filters?.categories,
-                                deals: filters?.deals,
-                                distance: filters?.distance,
+                                sort: filters.sortBy,
+                                categories: filters.categories,
+                                deals: filters.deals,
+                                distance: filters.distance,
                                 completion: { (businesses: [Business]!, error: NSError!) -> Void in
             self.businesses = BusinessList(businesses)
             self.tableView.dataSource = self.businesses
